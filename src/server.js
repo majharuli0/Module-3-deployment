@@ -1,6 +1,6 @@
-const express = require('express');
-const path = require('path');
-const fileURLToPath = require('url');
+const express = require("express");
+const path = require("path");
+const fileURLToPath = require("url");
 // import path from 'path';
 // import { fileURLToPath } from 'url';
 
@@ -11,14 +11,14 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Serve static files from the public directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.get('/api', (req, res) => {
-  res.json({ message: 'Hello World changes'});
+app.get("/api", (req, res) => {
+  res.json({ message: "Hello World changes" });
 });
 
 let server;
@@ -32,7 +32,9 @@ let server;
 if (require.main === module) {
   // If the file is run directly, start the server
   const PORT = process.env.PORT || 5000;
-  server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  server = app.listen(PORT, () =>
+    console.log(`Server running on port ${PORT}`)
+  );
 }
 
-module.exports = app
+module.exports = app;
